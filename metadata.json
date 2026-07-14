@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Remix: PRIJSM",
+  "description": "Predictive Refund Intelligence \u0026 Joint Scoring Model Core Gatekeeper Engine for fraud prevention.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

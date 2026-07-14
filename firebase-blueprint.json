@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "CustomerProfile": {
+      "title": "CustomerProfile",
+      "description": "Represents a customer profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Customer ID" },
+        "name": { "type": "string", "description": "Customer name" },
+        "accountAgeDays": { "type": "number", "description": "Account age in days" },
+        "totalOrdersBefore": { "type": "number", "description": "Total orders before current request" },
+        "pastReturnsCount": { "type": "number", "description": "Past returns count" }
+      },
+      "required": ["id", "name", "accountAgeDays", "totalOrdersBefore", "pastReturnsCount"]
+    },
+    "ReturnRequest": {
+      "title": "ReturnRequest",
+      "description": "Represents a return request and its fraud assessment",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number", "description": "Return Request ID" },
+        "customerId": { "type": "number", "description": "Customer ID" },
+        "customerName": { "type": "string", "description": "Customer name" },
+        "itemCategory": { "type": "string", "enum": ["Electronics", "Clothes", "Luxury", "Accessories"], "description": "Category of the item" },
+        "refundItemPrice": { "type": "number", "description": "Price of the item" },
+        "calculatedFraudRisk": { "type": "number", "description": "Calculated risk score 0 to 100" },
+        "systemFinalAction": { "type": "string", "enum": ["SAFE: AUTO-REFUND APPROVED", "WARNING: MANUAL CHECK REQUIRED", "FRAUD ALERT: REFUND BLOCKED"], "description": "Decision taken by the system" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of creation" }
+      },
+      "required": ["id", "customerId", "customerName", "itemCategory", "refundItemPrice", "calculatedFraudRisk", "systemFinalAction", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/customers": {
+      "schema": "CustomerProfile",
+      "description": "Store all customers profiles"
+    },
+    "/requests": {
+      "schema": "ReturnRequest",
+      "description": "Store all return requests"
+    }
+  }
+}

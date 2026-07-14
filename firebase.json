@@ -1,0 +1,8 @@
+{
+  "firestore": [
+    {
+      "database": "ai-studio-prijsm-3965a7b1-bca7-4e3e-8d66-4715d5da9a83",
+      "rules": "firestore.rules"
+    }
+  ]
+}
